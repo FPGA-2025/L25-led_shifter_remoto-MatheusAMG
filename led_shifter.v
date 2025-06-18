@@ -6,7 +6,7 @@ module LedShifter #(
     output  reg [7:0] leds
 );
 
-    localparam QUARTER_SECOND = CLK_FREQ/4;
+    localparam QUARTER_SECOND = CLK_FREQ/4; // Exercício fala 1sec mas TB = 1/4 de sec
     reg [31:0] counter;
 
     always @(posedge clk) begin
@@ -15,7 +15,7 @@ module LedShifter #(
             counter <= 'h0000;
         end
         else begin
-            if (counter >= ONE_SECOND - 1)begin
+            if (counter >= QUARTER_SECOND - 1)begin
                 counter <= 0;
                 leds <= {leds[6:0], leds[7]};
             end
