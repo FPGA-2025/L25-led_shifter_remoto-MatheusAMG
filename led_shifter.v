@@ -17,10 +17,10 @@ module LedShifter #(
         if (counter >= ONE_SECOND - 1)begin
             counter <= 0;
             leds <= {leds[6:0], leds[7]};
+        end
         else begin
             counter <= couter + 1;
         end
-
     end
     
 endmodule
